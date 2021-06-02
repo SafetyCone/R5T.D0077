@@ -1,0 +1,4 @@
+R5T.D0077.Base - Base service definitions library for the IDotnetOperator service (improvement on R5T.Norsica).
+
+Goals
+

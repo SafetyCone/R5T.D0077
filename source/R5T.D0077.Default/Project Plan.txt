@@ -1,0 +1,4 @@
+R5T.D0077.Default - Default service implementations library for the IDotnetOperator service (improvement on R5T.Norsica).
+
+Goals
+
