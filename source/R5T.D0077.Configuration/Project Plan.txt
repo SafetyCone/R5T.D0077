@@ -1,0 +1,4 @@
+R5T.D0077.Configuration - Configuation-based implementation for the IDotnetExecutableFilePathProvider service.
+
+Goals
+

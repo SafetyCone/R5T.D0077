@@ -1,4 +1,4 @@
-R5T.D0077.New - ICommandBuilder extensions for running "dotnet new" commands with the IDotnetOperator.
+R5T.D0077.New - IDotnetOperator extensions for running "dotnet new" commands with ICommandBuilder extensions.
 
 Goals
 

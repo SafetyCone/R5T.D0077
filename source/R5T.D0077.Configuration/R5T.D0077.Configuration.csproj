@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\R5T.T0021\source\R5T.T0021\R5T.T0021.csproj" />
+    <ProjectReference Include="..\..\..\R5T.T0022\source\R5T.T0022\R5T.T0022.csproj" />
+    <ProjectReference Include="..\..\..\R5T.T0027\source\R5T.T0027.Configuration.SecretsFilePaths\R5T.T0027.Configuration.SecretsFilePaths.csproj" />
+    <ProjectReference Include="..\R5T.D0077.Default\R5T.D0077.Default.csproj" />
+  </ItemGroup>
+
+</Project>

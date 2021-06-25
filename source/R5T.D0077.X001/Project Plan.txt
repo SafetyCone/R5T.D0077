@@ -1,0 +1,4 @@
+R5T.D0077.X001 - IDotnetOperator extensions for running "dotnet" commands with ICommandBuilder extensions.
+
+Goals
+

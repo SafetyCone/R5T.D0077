@@ -1,0 +1,4 @@
+R5T.D0077.A001 - Aggregation for the IDotnetOperator service.
+
+Goals
+
