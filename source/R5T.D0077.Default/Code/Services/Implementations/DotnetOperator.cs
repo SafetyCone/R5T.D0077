@@ -26,5 +26,13 @@ namespace R5T.D0077
 
             await this.CommandLineOperator.Run(dotnetExecutableFilePath, command);
         }
+
+        public async Task<CommandLineExecutionResult> ExecuteGetResult(string command)
+        {
+            var dotnetExecutableFilePath = await this.DotnetExecutableFilePathProvider.GetDotnetExecutableFilePath();
+
+            var output = await this.CommandLineOperator.RunGetResult(dotnetExecutableFilePath, command);
+            return output;
+        }
     }
 }
