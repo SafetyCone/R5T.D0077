@@ -7,7 +7,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\R5T.D0076\source\R5T.D0076.A001\R5T.D0076.A001.csproj" />
     <ProjectReference Include="..\R5T.D0077.Configuration\R5T.D0077.Configuration.csproj" />
-    <ProjectReference Include="..\R5T.D0077.Default\R5T.D0077.Default.csproj" />
   </ItemGroup>
 
 </Project>
