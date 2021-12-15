@@ -1,12 +1,12 @@
 ﻿using System;
 
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
-using R5T.Dacia;
 using R5T.Magyar;
 
 using R5T.D0076.A001;
+using R5T.T0062;
+using R5T.T0063;
 
 using R5T.D0077.Configuration;
 using R5T.D0077.Default;
@@ -14,27 +14,29 @@ using R5T.D0077.Default;
 
 namespace R5T.D0077.A001
 {
-    public static class IServiceCollectionExtensions
+    public static class IServiceActionExtensions
     {
-        public static ServicesAggregation01 AddDotnetExecutableServices(this IServiceCollection services,
+        public static ServiceActionAggregation01 AddDotnetExecutableServices(this IServiceAction _,
             IServiceAction<IConfiguration> configurationAction)
         {
-            var commandLineOperatorServices = services.AddCommandLineOperatorServices();
+            var commandLineOperatorServices = _.AddCommandLineOperatorServiceActions();
 
-            var dotnetExecutableFilePathProviderAction = services.AddDotnetExecutableFilePathProviderAction_Old(
+            var dotnetExecutableFilePathProviderAction = _.AddDotnetExecutableFilePathProviderAction(
                 configurationAction);
 
-            var dotnetOperatorAction = services.AddDotnetOperatorAction_Old(
+            var dotnetOperatorAction = _.AddDotnetOperatorAction(
                 commandLineOperatorServices.CommandLineOperatorAction,
                 dotnetExecutableFilePathProviderAction);
 
-            return new ServicesAggregation01()
-                .As<ServicesAggregation01, IServiceAggregation01Increment>(increment =>
+            var output = new ServiceActionAggregation01()
+                .As<ServiceActionAggregation01, IServiceActionAggregation01Increment>(increment =>
                 {
                     increment.DotnetExecutableFilePathProviderAction = dotnetExecutableFilePathProviderAction;
                     increment.DotnetOperatorAction = dotnetOperatorAction;
                 })
                 .FillFrom(commandLineOperatorServices);
+
+            return output;
         }
     }
 }

@@ -1,39 +1,38 @@
 ﻿using System;
 
-using Microsoft.Extensions.DependencyInjection;
-
 using R5T.D0076;
+using R5T.T0062;
 using R5T.T0063;
 
 
 namespace R5T.D0077.Default
 {
-    public static partial class IServiceCollectionExtensions
+    public static class IServiceActionExtensions
     {
         /// <summary>
         /// Adds the <see cref="DotnetOperator"/> implementation of <see cref="IDotnetOperator"/> as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        public static IServiceCollection AddDotnetOperator(this IServiceCollection services,
+        public static IServiceAction<IDotnetOperator> AddDotnetOperatorAction(this IServiceAction _,
             IServiceAction<ICommandLineOperator> commandLineOperatorAction,
             IServiceAction<IDotnetExecutableFilePathProvider> dotnetExecutableFilePathProviderAction)
         {
-            services.AddSingleton<IDotnetOperator, DotnetOperator>()
-                .Run(commandLineOperatorAction)
-                .Run(dotnetExecutableFilePathProviderAction)
-                ;
+            var serviceAction = _.New<IDotnetOperator>(services => services.AddDotnetOperator(
+                commandLineOperatorAction,
+                dotnetExecutableFilePathProviderAction));
 
-            return services;
+            return serviceAction;
         }
 
         /// <summary>
         /// Adds the <see cref="ConstructorBasedDotnetExecutableFilePathProvider"/> implementation of <see cref="IDotnetExecutableFilePathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
         /// </summary>
-        public static IServiceCollection AddConstructorBasedDotnetExecutableFilePathProvider(this IServiceCollection services,
+        public static IServiceAction<IDotnetExecutableFilePathProvider> AddConstructorBasedDotnetExecutableFilePathProviderAction(this IServiceAction _,
             string dotnetExecutableFilePath)
         {
-            services.AddSingleton<IDotnetExecutableFilePathProvider>(new ConstructorBasedDotnetExecutableFilePathProvider(dotnetExecutableFilePath));
+            var serviceAction = _.New<IDotnetExecutableFilePathProvider>(services => services.AddConstructorBasedDotnetExecutableFilePathProvider(
+                dotnetExecutableFilePath));
 
-            return services;
+            return serviceAction;
         }
     }
 }
