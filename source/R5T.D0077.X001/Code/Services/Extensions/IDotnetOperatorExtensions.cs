@@ -17,16 +17,38 @@ namespace R5T.D0077.X001
         public static Task AddProjectReferenceToProject(this IDotnetOperator dotnetOperator, string projectToModifyFilePath, string projectReferenceFilePathToAdd)
         {
             var command = CommandBuilder.New()
-                .Add(projectToModifyFilePath, ListHelper.From(projectReferenceFilePathToAdd))
+                .Add(projectToModifyFilePath, EnumerableHelper.From(projectReferenceFilePathToAdd))
                 .Build();
 
             return dotnetOperator.Execute(command);
         }
 
-        public static Task AddProjectReferenceToSolution(this IDotnetOperator dotnetOperator, string solutionFilePathToModify, string projectReferenceFilePathToAdd)
+        public static Task AddProjectReferencesToProject(this IDotnetOperator dotnetOperator, string projectToModifyFilePath, IEnumerable<string> projectReferenceFilePathsToAdd)
+        {
+            var command = CommandBuilder.New()
+                .Add(projectToModifyFilePath, projectReferenceFilePathsToAdd)
+                .Build();
+
+            return dotnetOperator.Execute(command);
+        }
+
+        public static Task AddProjectReferenceToSolution(this IDotnetOperator dotnetOperator,
+            string solutionFilePathToModify,
+            string projectReferenceFilePathToAdd)
         {
             var command = CommandBuilder.New()
                 .AddProjectToSolution(solutionFilePathToModify, projectReferenceFilePathToAdd)
+                .Build();
+
+            return dotnetOperator.Execute(command);
+        }
+
+        public static Task AddProjectReferencesToSolution(this IDotnetOperator dotnetOperator,
+            string solutionFilePathToModify,
+            IEnumerable<string> projectReferenceFilePathsToAdd)
+        {
+            var command = CommandBuilder.New()
+                .AddProjectsToSolution(solutionFilePathToModify, projectReferenceFilePathsToAdd)
                 .Build();
 
             return dotnetOperator.Execute(command);
@@ -41,6 +63,21 @@ namespace R5T.D0077.X001
                 .AddProjectToSolution(
                     solutionFilePathToModify,
                     projectReferenceFilePathToAdd,
+                    solutionFolder)
+                .Build();
+
+            return dotnetOperator.Execute(command);
+        }
+
+        public static Task AddProjectReferencesToSolution(this IDotnetOperator dotnetOperator,
+            string solutionFilePathToModify,
+            IEnumerable<string> projectReferenceFilePathsToAdd,
+            string solutionFolder)
+        {
+            var command = CommandBuilder.New()
+                .AddProjectsToSolution(
+                    solutionFilePathToModify,
+                    projectReferenceFilePathsToAdd,
                     solutionFolder)
                 .Build();
 

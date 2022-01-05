@@ -2,11 +2,13 @@
 using System.Threading.Tasks;
 
 using R5T.D0076;
+using R5T.T0064;
 
 
 namespace R5T.D0077
 {
-    public class DotnetOperator : IDotnetOperator
+    [ServiceImplementationMarker]
+    public class DotnetOperator : IDotnetOperator, IServiceImplementation
     {
         private ICommandLineOperator CommandLineOperator { get; }
         private IDotnetExecutableFilePathProvider DotnetExecutableFilePathProvider { get; }
