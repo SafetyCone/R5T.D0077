@@ -1,16 +1,19 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
+
+using R5T.T0064;
 
 
 namespace R5T.D0077
 {
-    public class ConstructorBasedDotnetExecutableFilePathProvider : IDotnetExecutableFilePathProvider
+    [ServiceImplementationMarker]
+    public class ConstructorBasedDotnetExecutableFilePathProvider : IDotnetExecutableFilePathProvider, IServiceImplementation
     {
         private string DotnetExecutableFilePath { get; }
 
 
         public ConstructorBasedDotnetExecutableFilePathProvider(
-            string dotnetExecutableFilePath)
+            [NotServiceComponent] string dotnetExecutableFilePath)
         {
             this.DotnetExecutableFilePath = dotnetExecutableFilePath;
         }
