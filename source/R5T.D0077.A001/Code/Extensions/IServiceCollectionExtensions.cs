@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using R5T.Dacia;
-using R5T.Magyar;
+using R5T.Magyar.Extensions;
 
 using R5T.D0076.A001;
 
@@ -29,7 +29,7 @@ namespace R5T.D0077.A001
                 dotnetExecutableFilePathProviderAction);
 
             return new ServicesAggregation01()
-                .As<ServicesAggregation01, IServiceAggregation01Increment>(increment =>
+                .ModifyAs<ServicesAggregation01, IServiceAggregation01Increment>(increment =>
                 {
                     increment.DotnetExecutableFilePathProviderAction = dotnetExecutableFilePathProviderAction;
                     increment.DotnetOperatorAction = dotnetOperatorAction;

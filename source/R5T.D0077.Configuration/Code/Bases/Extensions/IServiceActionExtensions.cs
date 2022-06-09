@@ -11,7 +11,7 @@ namespace R5T.D0077.Configuration
     public static class IServiceActionExtensions
     {
         /// <summary>
-        /// Adds the <see cref="DotnetExecutableFilePathProvider"/> implementation of <see cref="IDotnetExecutableFilePathProvider"/> as a <see cref="ServiceLifetime.Singleton"/>.
+        /// Adds the <see cref="DotnetExecutableFilePathProvider"/> implementation of <see cref="IDotnetExecutableFilePathProvider"/> as a <see cref="Microsoft.Extensions.DependencyInjection.ServiceLifetime.Singleton"/>.
         /// </summary>
         public static IServiceAction<IDotnetExecutableFilePathProvider> AddDotnetExecutableFilePathProviderAction(this IServiceAction _,
             IServiceAction<IConfiguration> configurationAction)

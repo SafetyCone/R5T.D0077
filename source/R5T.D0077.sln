@@ -69,7 +69,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R5T.T0064", "..\..\R5T.T006
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R5T.T0020", "..\..\R5T.T0020\source\R5T.T0020\R5T.T0020.csproj", "{9F9783CC-4DC9-4BA3-9F13-40C71B5EE0DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R5T.D0077.Default.I001", "R5T.D0077.Default.I001\R5T.D0077.Default.I001.csproj", "{5CBF2974-2191-4CCB-B8AB-B0C6B96988B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R5T.D0077.Default.I001", "R5T.D0077.Default.I001\R5T.D0077.Default.I001.csproj", "{5CBF2974-2191-4CCB-B8AB-B0C6B96988B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{615B37F7-CF11-495F-BA1F-5FCA8BD34E59}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
